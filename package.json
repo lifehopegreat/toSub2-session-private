@@ -1,0 +1,48 @@
+{
+  "name": "tosub2",
+  "version": "1.7.1",
+  "description": "本机 ChatGPT 账号管理：session 复制与导出、密码与 2FA 合体",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/console-server.mjs",
+    "start": "node src/console-server.mjs",
+    "daemon:start": "pm2 start ecosystem.config.cjs",
+    "daemon:restart": "pm2 restart tosub2 --update-env",
+    "daemon:stop": "pm2 stop tosub2",
+    "daemon:logs": "pm2 logs tosub2",
+    "check": "node --check src/microsoft-mail.mjs && node test/microsoft-mail.mjs && node test/microsoft-mail-console.mjs && node --check src/console-server.mjs && node --check src/protocol-login.mjs && node --check src/tls-transport.mjs && node --check src/mail-otp.mjs && node --check src/luban-sms.mjs && node --check src/smsbower.mjs && node --check src/custom-sms.mjs && node --check src/sms-providers.mjs && node --check src/credential-store.mjs && node test/tls-transport.mjs && node test/credential-store.mjs && node test/sms-providers.mjs && node test/console-job-lock-smoke.mjs && node test/console-smoke.mjs && node test/console-restore-shutdown-smoke.mjs && node test/sms-provider-console-smoke.mjs && node test/protocol-smoke.mjs && node test/password-mfa-workspace-smoke.mjs",
+    "check:live-session": "node test/live-session.mjs",
+    "check:syntax": "node --check src/console-server.mjs && node --check src/protocol-login.mjs && node --check src/browser-password.mjs && node --check src/credential-store.mjs && node --check src/microsoft-mail.mjs && node --check test/live-session.mjs && node --check test/live-microsoft-mail.mjs && node --check src/proxy-config.mjs && node --check src/session-status.mjs && node --check src/tls-transport.mjs && node --check test/proxy-config.mjs && node --check src/job-filter.mjs && node --check test/live-status-filter.mjs && node --check test/live-registration.mjs",
+    "check:live-mail": "node test/live-microsoft-mail.mjs",
+    "check:proxy": "node test/proxy-config.mjs",
+    "check:live-filter": "node test/live-status-filter.mjs",
+    "check:live-registration": "node test/live-registration.mjs"
+  },
+  "keywords": [
+    "chatgpt",
+    "codex",
+    "oauth",
+    "sub2api"
+  ],
+  "author": "poxiao33",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/poxiao33/toSub2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/poxiao33/toSub2/issues"
+  },
+  "homepage": "https://github.com/poxiao33/toSub2#readme",
+  "dependencies": {
+    "@vitejs/plugin-react": "^5.1.1",
+    "jsdom": "26.1.0",
+    "lucide-react": "^0.468.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "vite": "^6.4.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
